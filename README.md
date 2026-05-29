@@ -22,3 +22,21 @@ Discovered open ports on devices within the local network to understand network 
 **7. What is a port scan and why do attackers perform it?** A port scan is a systematic method of probing a server or network for open ports. Attackers perform it during the initial reconnaissance phase to map the attack surface and identify running services that can be leveraged for initial access.
 
 **8. How does Wireshark complement port scanning?** While Nmap acts as the active probe generating the traffic, Wireshark acts as the passive analyzer. It captures the raw packet exchange, allowing an analyst to verify the actual TCP flags being sent and troubleshoot firewall interference.
+
+## Overview
+Successfully scanned the local network subnet (`192.168.192.0/20`) using Nmap to identify active hosts and exposed services. Captured raw packet signatures using `tshark` to verify stealth scan behavior.
+
+## Discovered Services
+* **192.168.192.1 (Windows Host Gateway):** Port 7070 open (Verified via SSL certificate parsing as an active **AnyDesk** instance used for remote management).
+* **192.168.194.139 (Kali Linux VM):** Port 3389 open (Remote Desktop Protocol listener).
+
+## Forensic Analysis (TCP SYN Scan Signature)
+During packet analysis using `tshark`, the signature of Nmap's stealth half-open scan (`-sS`) was verified through a precise 3-way packet sequence targeting port 7070:
+1. `Kali → Host [SYN]` (Port Probe)
+2. `Host → Kali [SYN, ACK]` (Port Open Confirmation)
+3. `Kali → Host [RST]` (Connection Aborted to evade application logging)
+
+## Interview Question Responses
+1. **What is an open port?** A network port configured to accept incoming packets and route them to an active listening service.
+2. **How does Nmap perform a TCP SYN scan?** It launches a half-open probe by sending a SYN packet, awaiting a response, and instantly dropping the connection with a RST packet before the connection finishes.
+3. **What risks are associated with open ports?** Exposed entry points can be exploited if the underlying software contains unpatched vulnerabilities or weak authentication.
