@@ -36,7 +36,4 @@ During packet analysis using `tshark`, the signature of Nmap's stealth half-open
 2. `Host → Kali [SYN, ACK]` (Port Open Confirmation)
 3. `Kali → Host [RST]` (Connection Aborted to evade application logging)
 
-## Interview Question Responses
-1. **What is an open port?** A network port configured to accept incoming packets and route them to an active listening service.
-2. **How does Nmap perform a TCP SYN scan?** It launches a half-open probe by sending a SYN packet, awaiting a response, and instantly dropping the connection with a RST packet before the connection finishes.
-3. **What risks are associated with open ports?** Exposed entry points can be exploited if the underlying software contains unpatched vulnerabilities or weak authentication.
+
