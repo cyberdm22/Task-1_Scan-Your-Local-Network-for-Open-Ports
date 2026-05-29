@@ -1,0 +1,17 @@
+# Nmap 7.99 scan initiated Fri May 29 21:48:10 2026 as: /usr/lib/nmap/nmap -sS -oN nmap_scan_results.txt 172.23.230.0/20
+Nmap scan report for Mishra.mshome.net (172.23.224.1)
+Host is up (0.00055s latency).
+Not shown: 997 filtered tcp ports (no-response)
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+2179/tcp open  vmrdp
+7070/tcp open  realserver
+MAC Address: 00:15:5D:1F:18:00 (Microsoft)
+
+Nmap scan report for M1731.mshome.net (172.23.230.87)
+Host is up (0.000041s latency).
+Not shown: 999 filtered tcp ports (no-response)
+PORT     STATE SERVICE
+3389/tcp open  ms-wbt-server
+
+# Nmap done at Fri May 29 21:48:31 2026 -- 4096 IP addresses (2 hosts up) scanned in 20.23 seconds
