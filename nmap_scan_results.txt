@@ -1,5 +1,5 @@
 # Nmap 7.99 scan initiated Fri May 29 21:48:10 2026 as: /usr/lib/nmap/nmap -sS -oN nmap_scan_results.txt 172.23.230.0/20
-Nmap scan report for Mishra.mshome.net (172.23.224.1)
+Nmap scan report for xxxxx.mshome.net (172.23.224.1)
 Host is up (0.00055s latency).
 Not shown: 997 filtered tcp ports (no-response)
 PORT     STATE SERVICE
